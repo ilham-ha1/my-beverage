@@ -26,6 +26,7 @@ fun BeveragesItem(
             .fillMaxWidth()
             .padding(8.dp),
         elevation = 4.dp
+
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             AsyncImage(

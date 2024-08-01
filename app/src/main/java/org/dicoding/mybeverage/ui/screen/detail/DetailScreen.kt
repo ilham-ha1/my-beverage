@@ -24,19 +24,16 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import org.dicoding.mybeverage.R
 import org.dicoding.mybeverage.data.repository.BeverageRepository
-import org.dicoding.mybeverage.ui.ViewModelFactory
 import org.dicoding.mybeverage.ui.common.UiState
+import org.dicoding.mybeverage.ui.screen.home.HomeViewModel
 import org.dicoding.mybeverage.ui.theme.MyBeverageTheme
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun DetailScreen(
     id: Int,
-    viewModel: DetailViewModel = viewModel(
-        factory = ViewModelFactory(
-            BeverageRepository()
-        )
-    ),
     navigateBack: () -> Unit,
+    viewModel: DetailViewModel = koinViewModel()
 ){
     viewModel.uiState.collectAsState(initial = UiState.Loading).value.let { uiState ->
         when(uiState){

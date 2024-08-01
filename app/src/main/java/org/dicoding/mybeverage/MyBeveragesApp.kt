@@ -22,9 +22,11 @@ import org.dicoding.mybeverage.ui.navigation.NavigationItem
 import org.dicoding.mybeverage.ui.navigation.Screen
 import org.dicoding.mybeverage.ui.screen.detail.DetailScreen
 import org.dicoding.mybeverage.ui.screen.home.HomeScreen
+import org.dicoding.mybeverage.ui.screen.home.HomeViewModel
 import org.dicoding.mybeverage.ui.screen.profile.ProfileScreen
 import org.dicoding.mybeverage.ui.screen.splash.SplashScreen
 import org.dicoding.mybeverage.ui.theme.MyBeverageTheme
+import org.koin.androidx.compose.koinViewModel
 
 @Composable
 fun MyBeveragesApp (
@@ -33,6 +35,7 @@ fun MyBeveragesApp (
 ){
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
+
 
     Scaffold(
         topBar = {
@@ -69,7 +72,7 @@ fun MyBeveragesApp (
                 HomeScreen(
                     navigateToDetail = { id ->
                         navController.navigate(Screen.Detail.createRoute(id))
-                    }
+                    },
                 )
             }
             composable(Screen.Profile.route) {

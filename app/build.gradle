@@ -4,12 +4,12 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 34
 
     defaultConfig {
         applicationId "org.dicoding.mybeverage"
         minSdk 21
-        targetSdk 32
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -69,4 +69,8 @@ dependencies {
     implementation "androidx.compose.runtime:runtime:1.0.4"
 
     implementation "androidx.navigation:navigation-compose:2.4.0-alpha10"
+
+    //Koin
+    implementation ("io.insert-koin:koin-android:$koin_version")
+    implementation ("io.insert-koin:koin-androidx-compose:$koin_version")
 }
